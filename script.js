@@ -21,8 +21,6 @@ function playRound(playerSelection, computerSelection) {
         return "You lose! Rock beats scissors.";
     } else if (selection === "scissors" && computerSelection === "paper") {
         return "You win! Scissors beats paper."
-    } else if (selection === "scissor") {
-        return "I cannot accept the word \"scissor\" yet. Sorry, please add 's'.";
     } else {
         return "Please type any of these choices: rock, paper, or scissors.";
     }
@@ -41,6 +39,20 @@ function playRound(playerSelection, computerSelection) {
 // 2 - hang in there!
 // 1 - oh, that's fine, you can try again :)
 
-const btnRock = document.querySelector("#rock");
-const btnPaper = document.querySelector("#paper");
-const btnScissors = document.querySelector("#scissors");
+const selection = document.querySelector(".selection");
+
+selection.addEventListener("click", (event) => {
+    let target = event.target;
+
+    switch (target.id) {
+        case "rock":
+            playRound("rock", getComputerChoice);
+            break;
+        case "paper":
+            playRound("paper", getComputerChoice);
+            break;
+        case "scissors":
+            playRound("scissors", getComputerChoice);
+            break;
+    }
+});
