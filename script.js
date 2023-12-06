@@ -1,5 +1,3 @@
-console.log("hi :) i hope you're doing well");
-console.log("to launch the game please enter: game()");
 // https://www.javatpoint.com/how-to-pick-random-elements-from-an-array
 function getComputerChoice() {
     const choice = ["rock", "paper", "scissors"];
@@ -25,12 +23,12 @@ function playRound(playerSelection, computerSelection) {
         return "Please type any of these choices: rock, paper, or scissors.";
     }
 }
-// function game() {
+function game(playerSelection) {
     // let playerSelection = prompt("Should you pick rock, paper, or scissors?");
     // for (let i = 0; i < 5; i++) {
-        // console.log(playRound(playerSelection, getComputerChoice()));
+        return playRound(playerSelection, getComputerChoice());
     // }
-// }
+}
 
 // next: add responses to overall results of the player
 // 5 - whoa, perfect guess!
@@ -40,19 +38,30 @@ function playRound(playerSelection, computerSelection) {
 // 1 - oh, that's fine, you can try again :)
 
 const selection = document.querySelector(".selection");
+const btnRock = document.querySelector("#rock");
+const btnPaper = document.querySelector("#paper");
+const btnScissors = document.querySelector("#scissors");
+const result = document.querySelector("#result");
+
+btnRock.textContent = "Rock";
+btnPaper.textContent = "Paper";
+btnScissors.textContent = "Scissors";
 
 selection.addEventListener("click", (event) => {
     let target = event.target;
 
     switch (target.id) {
         case "rock":
-            playRound("rock", getComputerChoice);
+            result.textContent = game(btnRock.textContent);
             break;
         case "paper":
-            playRound("paper", getComputerChoice);
+            result.textContent = game(btnPaper.textContent);
             break;
         case "scissors":
-            playRound("scissors", getComputerChoice);
+            result.textContent = game(btnScissors.textContent);
+            break;
+        default:
+            result.textContent = "Undefined value";
             break;
     }
 });
