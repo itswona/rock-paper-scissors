@@ -33,6 +33,7 @@ const selection = document.querySelector(".selection");
 const btnRock = document.querySelector("#rock");
 const btnPaper = document.querySelector("#paper");
 const btnScissors = document.querySelector("#scissors");
+const score = document.querySelector("#score");
 const result = document.querySelector("#result");
 
 btnRock.textContent = "Rock";
@@ -56,10 +57,3 @@ selection.addEventListener("click", (event) => {
             break;
     }
 });
-
-// next: add responses to overall results of the player
-// 5 - whoa, perfect guess!
-// 4 - you're amazing, great guess!
-// 3 - that's good, keep it up!
-// 2 - hang in there!
-// 1 - oh, that's fine, you can try again :)
