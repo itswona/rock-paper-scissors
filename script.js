@@ -3,6 +3,7 @@ function getComputerChoice() {
     const choice = ["rock", "paper", "scissors"];
     return choice[Math.floor(Math.random() * choice.length)];
 }
+
 function playRound(playerSelection, computerSelection) {
     let selection = playerSelection.toLowerCase();
     if (selection === computerSelection) {
@@ -23,19 +24,10 @@ function playRound(playerSelection, computerSelection) {
         return "Please type any of these choices: rock, paper, or scissors.";
     }
 }
-function game(playerSelection) {
-    // let playerSelection = prompt("Should you pick rock, paper, or scissors?");
-    // for (let i = 0; i < 5; i++) {
-        return playRound(playerSelection, getComputerChoice());
-    // }
-}
 
-// next: add responses to overall results of the player
-// 5 - whoa, perfect guess!
-// 4 - you're amazing, great guess!
-// 3 - that's good, keep it up!
-// 2 - hang in there!
-// 1 - oh, that's fine, you can try again :)
+function game(playerSelection) {
+    return playRound(playerSelection, getComputerChoice());
+}
 
 const selection = document.querySelector(".selection");
 const btnRock = document.querySelector("#rock");
@@ -49,7 +41,6 @@ btnScissors.textContent = "Scissors";
 
 selection.addEventListener("click", (event) => {
     let target = event.target;
-
     switch (target.id) {
         case "rock":
             result.textContent = game(btnRock.textContent);
@@ -65,3 +56,10 @@ selection.addEventListener("click", (event) => {
             break;
     }
 });
+
+// next: add responses to overall results of the player
+// 5 - whoa, perfect guess!
+// 4 - you're amazing, great guess!
+// 3 - that's good, keep it up!
+// 2 - hang in there!
+// 1 - oh, that's fine, you can try again :)
