@@ -36,13 +36,19 @@ function playRound(playerSelection, computerSelection) {
     if (userCounter < 5) {
         userScore.textContent = userCounter;
     } else {
-        userScore.textContent = "You win the game! Congratulations!";
+        userScore.textContent = "You win the game! Congratulations! Reload the webpage to try again.";
+        btnRock.disabled = true;
+        btnPaper.disabled = true;
+        btnScissors.disabled = true;
     }
     
     if (computerCounter < 5) {
         computerScore.textContent = computerCounter;
     } else {
-        computerScore.textContent = "Computer wins the game! Better luck next time!";
+        computerScore.textContent = "Computer wins the game! Better luck next time! Reload the webpage to try again.";
+        btnRock.disabled = true;
+        btnPaper.disabled = true;
+        btnScissors.disabled = true;
     }
     
 }
