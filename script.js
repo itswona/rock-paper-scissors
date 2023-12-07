@@ -4,6 +4,9 @@ function getComputerChoice() {
     return choice[Math.floor(Math.random() * choice.length)];
 }
 
+// let humanPoints = "";
+// let computerPoints = 0;
+
 function playRound(playerSelection, computerSelection) {
     let selection = playerSelection.toLowerCase();
     if (selection === computerSelection) {
@@ -33,12 +36,17 @@ const selection = document.querySelector(".selection");
 const btnRock = document.querySelector("#rock");
 const btnPaper = document.querySelector("#paper");
 const btnScissors = document.querySelector("#scissors");
-const score = document.querySelector("#score");
+
+const humanScore = document.querySelector("#human");
+const computerScore = document.querySelector("#computer");
 const result = document.querySelector("#result");
 
 btnRock.textContent = "Rock";
 btnPaper.textContent = "Paper";
 btnScissors.textContent = "Scissors";
+
+humanScore.textContent = humanPoints;
+computerScore.textContent = computerPoints;
 
 selection.addEventListener("click", (event) => {
     let target = event.target;
