@@ -1,4 +1,7 @@
 # rps
-The Odin Project rock paper scissors
 
-[Run](https://bileeave.github.io/rps/) (**Ctrl + click** or **Command + click** to open in new tab)
+The Odin Project rock paper scissors.
+
+"Ctrl + click" or "Command + click" to open in new tab:
+
+[Run](https://bileeave.github.io/rps/)
