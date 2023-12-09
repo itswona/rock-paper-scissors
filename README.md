@@ -1,2 +1,3 @@
 # rps
-odin project rock paper scissors
+The Odin Project rock paper scissors
+[run](https://bileeave.github.io/rps/)
