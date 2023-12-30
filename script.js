@@ -1,7 +1,17 @@
 // https://www.javatpoint.com/how-to-pick-random-elements-from-an-array
 function getComputerChoice() {
     const choice = ["rock", "paper", "scissors"];
-    return choice[Math.floor(Math.random() * choice.length)];
+    for (let i = 0; i < choice.length; i++) {
+        shuffle(choice);
+        return choice[i];
+    }
+}
+
+function shuffle (array) {
+    for(let i = array.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
 }
 
 let userCounter = 0;
