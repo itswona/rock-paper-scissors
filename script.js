@@ -23,9 +23,10 @@ btnPaper.setAttribute("id", "paper");
 const btnScissors = document.createElement("button");
 btnScissors.textContent = "Scissors";
 btnScissors.setAttribute("id", "scissors");
-const btnReset = document.createElement("button");
 
+const btnReset = document.createElement("button");
 btnReset.textContent = "Reset";
+btnReset.setAttribute("id", "reset");
 btnReset.addEventListener("click", () => window.location.reload());
 
 selection.append(btnRock, btnPaper, btnScissors, btnReset);
@@ -42,7 +43,7 @@ computerScore.textContent = "Computer's score here.";
 computerScore.setAttribute("id", "computerScore");
 
 scores.append(userScore, computerScore);
-container.append(title, selection, scores, result);
+container.append(title, result, selection, scores);
 
 // https://www.javatpoint.com/how-to-pick-random-elements-from-an-array
 function getComputerChoice() {
