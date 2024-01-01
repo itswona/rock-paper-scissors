@@ -1,3 +1,49 @@
+let userCounter = 0;
+let computerCounter = 0;
+
+const container = document.querySelector(".container");
+
+const title = document.createElement("h1");
+title.textContent = "Rock Paper Scissors";
+
+const result = document.createElement("p");
+result.setAttribute("id", "result");
+
+const selection = document.createElement("div");
+selection.setAttribute("class", "selection");
+
+const btnRock = document.createElement("button");
+btnRock.textContent = "Rock";
+btnRock.setAttribute("id", "rock");
+
+const btnPaper = document.createElement("button");
+btnPaper.textContent = "Paper";
+btnPaper.setAttribute("id", "paper");
+
+const btnScissors = document.createElement("button");
+btnScissors.textContent = "Scissors";
+btnScissors.setAttribute("id", "scissors");
+const btnReset = document.createElement("button");
+
+btnReset.textContent = "Reset";
+btnReset.addEventListener("click", () => window.location.reload());
+
+selection.append(btnRock, btnPaper, btnScissors, btnReset);
+
+const scores = document.createElement("div");
+scores.setAttribute("class", "result");
+
+const userScore = document.createElement("p");
+userScore.textContent = "Your score here.";
+userScore.setAttribute("id", "userScore");
+
+const computerScore = document.createElement("p");
+computerScore.textContent = "Computer's score here.";
+computerScore.setAttribute("id", "computerScore");
+
+scores.append(userScore, computerScore);
+container.append(title, selection, scores, result);
+
 // https://www.javatpoint.com/how-to-pick-random-elements-from-an-array
 function getComputerChoice() {
     const choice = ["rock", "paper", "scissors"];
@@ -14,39 +60,35 @@ function shuffle (array) {
     }
 }
 
-let userCounter = 0;
-let computerCounter = 0;
-
 function playRound(playerSelection, computerSelection) {
     let selection = playerSelection.toLowerCase();
     if (selection === computerSelection) {
-        result.textContent = "Ooh, it's a tie!";
+        result.textContent = "Tie!";
     } else if (selection === "rock" && computerSelection === "paper") {
-        result.textContent = "You lose! Paper beats rock.";
+        result.textContent = "Oops! Computer beats you with paper.";
         computerCounter++;
     } else if (selection === "rock" && computerSelection === "scissors") {
-        result.textContent = "You win! Rock beats scissor.";
+        result.textContent = "Awesome! You beat computer with rock.";
         userCounter++;
     } else if (selection === "paper" && computerSelection === "scissors") {
-        result.textContent = "You lose! Scissors beats paper.";
+        result.textContent = "Oops! Computer beats you with scissors.";
         computerCounter++;
     } else if (selection === "paper" && computerSelection === "rock") {
-        result.textContent = "You win! Paper beats rock.";
+        result.textContent = "Awesome! You beat computer with paper.";
         userCounter++;
     } else if (selection === "scissors" && computerSelection === "rock") {
-        result.textContent = "You lose! Rock beats scissors.";
+        result.textContent = "Oops! Computer beats you with rock.";
         computerCounter++;
     } else if (selection === "scissors" && computerSelection === "paper") {
-        result.textContent = "You win! Scissors beats paper.";
+        result.textContent = "Awesome! You beat computer with scissors.";
         userCounter++;
-    } else {
-        result.textContent = "Choices must be rock, paper, or scissors.";
     }
 
     if (userCounter < 5) {
         userScore.textContent = userCounter;
     } else {
-        userScore.textContent = "You win the game! Congratulations! Reload the webpage to try again.";
+        userScore.textContent = "Winner";
+        result.textContent = "You win the game!";
         btnRock.disabled = true;
         btnPaper.disabled = true;
         btnScissors.disabled = true;
@@ -55,7 +97,8 @@ function playRound(playerSelection, computerSelection) {
     if (computerCounter < 5) {
         computerScore.textContent = computerCounter;
     } else {
-        computerScore.textContent = "Computer wins the game! Better luck next time! Reload the webpage to try again.";
+        computerScore.textContent = "Winner";
+        result.textContent = "Oh no! You lost the game.";
         btnRock.disabled = true;
         btnPaper.disabled = true;
         btnScissors.disabled = true;
@@ -66,22 +109,6 @@ function playRound(playerSelection, computerSelection) {
 function game(playerSelection) {
     return playRound(playerSelection, getComputerChoice());
 }
-
-const selection = document.querySelector(".selection");
-const btnRock = document.querySelector("#rock");
-const btnPaper = document.querySelector("#paper");
-const btnScissors = document.querySelector("#scissors");
-
-const userScore = document.querySelector("#userScore");
-const computerScore = document.querySelector("#computerScore");
-const result = document.querySelector("#result");
-
-userScore.textContent = userCounter;
-computerScore.textContent = computerCounter;
-
-btnRock.textContent = "Rock";
-btnPaper.textContent = "Paper";
-btnScissors.textContent = "Scissors";
 
 selection.addEventListener("click", (event) => {
     let target = event.target;
