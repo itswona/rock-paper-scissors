@@ -1,0 +1,43 @@
+html {
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+  box-sizing: border-box;
+}
+*:not(img),
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+body, .container, .selection {
+  display: flex;
+}
+body, .container {
+  justify-content: center;
+  align-items: center;
+}
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: #607274;
+}
+.container, .selection > button {
+  padding: 10px;
+  border-radius: 10px;
+}
+.container {
+    flex-flow: column wrap;
+    min-height: 350px;
+    min-width: 350px;
+    border: 3px solid black;
+    background-color: #FAEED1;
+}
+.selection {
+  gap: 1em;
+}
+.selection > button {
+  background-color: #DED0B6;
+  border: none;
+}
+.selection > button:hover {
+  background-color: #B2A59B;
+}

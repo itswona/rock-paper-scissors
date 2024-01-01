@@ -8,6 +8,7 @@ title.textContent = "Rock Paper Scissors";
 
 const result = document.createElement("p");
 result.setAttribute("id", "result");
+result.textContent = "Click on rock, paper, or scissors to begin.";
 
 const selection = document.createElement("div");
 selection.setAttribute("class", "selection");
@@ -29,19 +30,18 @@ btnReset.textContent = "Reset";
 btnReset.setAttribute("id", "reset");
 btnReset.addEventListener("click", () => window.location.reload());
 
-selection.append(btnRock, btnPaper, btnScissors, btnReset);
-
 const scores = document.createElement("div");
 scores.setAttribute("class", "result");
 
 const userScore = document.createElement("p");
-userScore.textContent = "Your score here.";
+userScore.textContent = "Human";
 userScore.setAttribute("id", "userScore");
 
 const computerScore = document.createElement("p");
-computerScore.textContent = "Computer's score here.";
+computerScore.textContent = "Computer";
 computerScore.setAttribute("id", "computerScore");
 
+selection.append(btnRock, btnPaper, btnScissors, btnReset);
 scores.append(userScore, computerScore);
 container.append(title, result, selection, scores);
 
